@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoadSoS - Emergency Road Help</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>🚨 RoadSoS</h1>
+    <p>Emergency Help During Road Accidents</p>
+  </div>
+
+  <!-- SOS Button -->
+  <div class="sos-section">
+    <button class="sos-btn" onclick="sendSOS()">
+      🆘 SEND SOS
+    </button>
+    <p class="sos-text">Sends your location to emergency contact</p>
+  </div>
+
+  <!-- Quick Call Buttons -->
+  <div class="quick-calls">
+    <a href="tel:108" class="call-btn ambulance">🚑 Ambulance (108)</a>
+    <a href="tel:100" class="call-btn police">🚔 Police (100)</a>
+    <a href="tel:1073" class="call-btn highway">🛣️ Highway Help (1073)</a>
+    <a href="tel:102" class="call-btn fire">🔥 Fire (102)</a>
+  </div>
+
+  <!-- Filter Buttons -->
+  <div class="filters">
+    <button onclick="findPlaces('hospital')" class="filter-btn">🏥 Hospitals</button>
+    <button onclick="findPlaces('police')" class="filter-btn">🚔 Police</button>
+    <button onclick="findPlaces('pharmacy')" class="filter-btn">💊 Pharmacy</button>
+    <button onclick="findPlaces('gas_station')" class="filter-btn">⛽ Fuel</button>
+  </div>
+
+  <!-- Map -->
+  <div id="map"></div>
+
+  <!-- Nearby Places List -->
+  <div class="places-list">
+    <h3>📍 Nearby Emergency Services</h3>
+    <div id="places-container">
+      <p>Click a button above to find nearby services</p>
+    </div>
+  </div>
+
+  <!-- AI Chatbot -->
+  <div class="chatbot-container">
+    <div class="chatbot-header" onclick="toggleChat()">
+      🤖 Emergency AI Guide ▲
+    </div>
+    <div class="chatbot-body" id="chatBody">
+      <div class="chat-messages" id="chatMessages">
+        <div class="bot-msg">
+          Hi! I'm your emergency guide. 
+          Are you injured? Tell me what happened 
+          and I'll help you step by step.
+        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="userInput" 
+               placeholder="Type your situation..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Maps Script -->
+  <script src="app.js"></script>
+  <script src="chatbot.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSiLgXG9LEJCew3jLFC22k5nb5fuez2SA&libraries=places&callback=initMap">
+  </script>
+
+</body>
+</html>
